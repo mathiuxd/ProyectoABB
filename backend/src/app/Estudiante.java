@@ -9,8 +9,7 @@ public class Estudiante {
     private int semestre;
     private String correo;
 
-    public Estudiante(String matricula, String dni, String nombre, String apellido, String programa, int semestre,
-            String correo) {
+    public Estudiante(String matricula, String dni, String nombre, String apellido, String programa, int semestre,String correo) {
         this.matricula = matricula;
         this.dni = dni;
         this.nombre = nombre;
@@ -59,14 +58,11 @@ public class Estudiante {
         this.semestre = semestre;
     }
 
-    public void mostrarInfo() {
-        System.out.println("Matrícula: " + matricula);
-        System.out.println("DNI: " + dni);
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Apellido: " + apellido);
-        System.out.println("Programa: " + programa);
-        System.out.println("Semestre: " + semestre);
-        System.out.println("Correo: " + correo);
+    @Override
+    public String toString(){
+        return "Matricula: " + matricula + "| Nombre: " + nombre + " " + apellido + "| Programa: " + programa + "| Semestre: " + semestre;
     }
+
+    
 
 }
