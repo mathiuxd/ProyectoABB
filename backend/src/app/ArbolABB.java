@@ -50,4 +50,48 @@ public class ArbolABB {
 
     }
 
+    public void eliminar(String dni) {
+        raiz = eliminarRecursivo(raiz, dni);
+    }
+
+    public NodoABB eliminarRecursivo(NodoABB nodo, String dni) {
+        if (nodo == null) {
+            return null;
+        }
+
+        int comparacion = dni.compareTo(nodo.getEstudiante().getDni());
+
+        if (comparacion < 0) {
+
+            nodo.setIzquierda(eliminarRecursivo(nodo.getIzquierda(), dni));
+        } else if (comparacion > 0) {
+
+            nodo.setDerecha(eliminarRecursivo(nodo.getDerecha(), dni));
+        } else {
+
+            if (nodo.getIzquierda() == null && nodo.getDerecha() == null) {
+                return null;
+            }
+            // Caso 2: Nodo con un solo hijo
+            if (nodo.getIzquierda() == null) {
+                return nodo.getDerecha();
+            }
+            if (nodo.getDerecha() == null) {
+                return nodo.getIzquierda();
+            }
+            // Caso 3: Nodo con dos hijos
+            NodoABB sucesor = encontrarMinimo(nodo.getDerecha());
+            nodo.setEstudiante(sucesor.getEstudiante());
+            nodo.setDerecha(eliminarRecursivo(nodo.getDerecha(), sucesor.getEstudiante().getDni()));
+        }
+
+        return nodo;
+    }
+
+    public NodoABB encontrarMinimo(NodoABB nodo) {
+        while (nodo.getIzquierda() != null) {
+            nodo = nodo.getIzquierda();
+        }
+        return nodo;
+    }
 }
