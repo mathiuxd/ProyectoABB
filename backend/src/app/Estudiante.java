@@ -4,12 +4,22 @@ public class Estudiante {
     private String matricula;
     private String dni;
     private String nombre;
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
     private String apellido;
     private String programa;
     private int semestre;
     private String correo;
 
-    public Estudiante(String matricula, String dni, String nombre, String apellido, String programa, int semestre,String correo) {
+    public Estudiante(String matricula, String dni, String nombre, String apellido, String programa, int semestre,
+            String correo) {
         this.matricula = matricula;
         this.dni = dni;
         this.nombre = nombre;
@@ -59,10 +69,9 @@ public class Estudiante {
     }
 
     @Override
-    public String toString(){
-        return "Matricula: " + matricula + "| Nombre: " + nombre + " " + apellido + "| Programa: " + programa + "| Semestre: " + semestre;
+    public String toString() {
+        return "Matricula: " + matricula + "| Nombre: " + nombre + " " + apellido + "| Programa: " + programa
+                + "| Semestre: " + semestre;
     }
-
-    
 
 }

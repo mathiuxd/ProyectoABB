@@ -5,7 +5,7 @@ public class NodoABB {
     NodoABB izquierda;
     NodoABB derecha;
 
-    public NodoABB(Estudiante estudiante, NodoABB izquierda, NodoABB derecha) {
+    public NodoABB(Estudiante estudiante) {
         this.estudiante = estudiante;
         this.izquierda = null;
         this.derecha = null;
@@ -34,7 +34,5 @@ public class NodoABB {
     public void setDerecha(NodoABB derecha) {
         this.derecha = derecha;
     }
-
-    
 
 }
