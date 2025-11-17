@@ -15,7 +15,7 @@ public class ArbolABB {
         if (nodo == null) {
             return new NodoABB(estudiante);
         }
-
+        // compareTo sitve para comparar dos objectos del mismo tipo
         int comparacion = estudiante.getDni().compareTo(nodo.getEstudiante().getDni());
 
         if (comparacion < 0) {
@@ -27,6 +27,27 @@ public class ArbolABB {
         }
 
         return nodo;
+    }
+
+    public Estudiante buscar(String dni) {
+        return buscarRecursivo(raiz, dni);
+    }
+
+    public Estudiante buscarRecursivo(NodoABB nodo, String dni) {
+        if (nodo == null) {
+            return null;
+        }
+
+        int comparacion = dni.compareTo(nodo.getEstudiante().getDni());
+
+        if (comparacion == 0) {
+            return nodo.getEstudiante();
+        } else if (comparacion < 0) {
+            return buscarRecursivo(nodo.getIzquierda(), dni);
+        } else {
+            return buscarRecursivo(nodo.getDerecha(), dni);
+        }
+
     }
 
 }
