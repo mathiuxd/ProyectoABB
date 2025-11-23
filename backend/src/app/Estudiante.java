@@ -70,8 +70,7 @@ public class Estudiante {
 
     @Override
     public String toString() {
-        return "Matricula: " + matricula + "| Nombre: " + nombre + " " + apellido + "| Programa: " + programa
-                + "| Semestre: " + semestre;
+        return "Matricula: " + matricula + "| Nombre: " + nombre + " " + apellido + "| Programa: " + programa + "| Semestre: " + semestre;
     }
 
 }

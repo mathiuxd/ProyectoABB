@@ -72,14 +72,12 @@ public class ArbolABB {
             if (nodo.getIzquierda() == null && nodo.getDerecha() == null) {
                 return null;
             }
-            // Caso 2: Nodo con un solo hijo
             if (nodo.getIzquierda() == null) {
                 return nodo.getDerecha();
             }
             if (nodo.getDerecha() == null) {
                 return nodo.getIzquierda();
             }
-            // Caso 3: Nodo con dos hijos
             NodoABB sucesor = encontrarMinimo(nodo.getDerecha());
             nodo.setEstudiante(sucesor.getEstudiante());
             nodo.setDerecha(eliminarRecursivo(nodo.getDerecha(), sucesor.getEstudiante().getDni()));
@@ -93,5 +91,21 @@ public class ArbolABB {
             nodo = nodo.getIzquierda();
         }
         return nodo;
+    }
+
+    public void listar() {
+        if (raiz == null) {
+            System.out.println("El árbol está vacío");
+        } else {
+            listarRecursivo(raiz);
+        }
+    }
+
+    private void listarRecursivo(NodoABB nodo) {
+        if (nodo != null) {
+            listarRecursivo(nodo.getIzquierda());
+            System.out.println(nodo.getEstudiante());
+            listarRecursivo(nodo.getDerecha());
+        }
     }
 }
