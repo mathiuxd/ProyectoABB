@@ -108,4 +108,8 @@ public class ArbolABB {
             listarRecursivo(nodo.getDerecha());
         }
     }
+
+    public NodoABB getRaiz() {
+        return raiz;
+    }
 }
